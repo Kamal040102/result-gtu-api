@@ -15,7 +15,7 @@
     <h4>Recently Declared Results:</h4>
     <ol>
         {% for result in data_json.values() %}
-        {% if (yester_date in result[-12:-10] or today_date in result[-12:-10]) and curr_month in result %}
+        {% if (yester_date in result or today_date in result) and curr_month in result %}
         <li style="margin: 5px;">{{result}}</li>
         {% endif %}
         {% endfor %}
