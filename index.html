@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTU Result | Kamal</title>
+</head>
+
+<body>
+    <h1 style="text-decoration: underline; margin-top: 0;">GTU Result</h1>
+    {% if first_int == first_data -%}
+    <h3>{{give}}{{curr_time}}.</h3>
+    <h4>Recently Declared Results:</h4>
+    <ol>
+        {% for result in data_json.values() %}
+        {% if (yester_date in result[-12:-10] or today_date in result[-12:-10]) and curr_month in result %}
+        <li style="margin: 5px;">{{result}}</li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+    {% else -%}
+    <h3>{{give}}{{curr_time}}</h3>
+    <h4>Recently Declared Results:</h4>
+    <ol>
+        {% for result in data_json.values() %}
+        <li style="margin: 5px;">{{result}}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+</body>
+
+</html>
